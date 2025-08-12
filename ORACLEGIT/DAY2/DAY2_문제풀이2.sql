@@ -34,6 +34,14 @@ WHERE ENR_GRADE > (
 )
 GROUP BY STU_NAME, S.STU_NO;
 
+-- Grouping한 뒤에 (한 학생이 시험을 몇개씩 봤을수도 있으니 그룹으로 묶음) 그 group으로 묶인 시험점수의 평균과 전체 학생성적의 평균을 비교해야 함
+즉, where절은 그룹핑전에 개별로 조건을 비교하는것이기에 묶여있지않는 개별의 시험점수만을 비교할수있다
+그렇기에, 그룹핑한뒤 조건을 정할수있는 having절을 사용해 비교하면 된다
+having avg(ENR_GRADE) > (
+    SELECT AVG(ENR_GRADE)
+    FROM STUDENT S
+    INNER JOIN ENROL E ON S.STU_NO = E.STU_NO
+)
 -------------------------
 
 -- 5. 사원번호, 이름, 급여 등급, 사수(MANAGER)이름을 출력하시오.
