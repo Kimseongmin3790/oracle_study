@@ -1,0 +1,16 @@
+-- 그룹 함수
+
+SELECT MAX(STU_HEIGHT) AS MAX_HEIGHT -- 가장 큰값을 구하는 함수
+FROM STUDENT;
+
+SELECT STU_NAME AS 이름 -- 한글로도 별칭 가능
+FROM STUDENT;
+
+SELECT STU_NAME 이름 -- AS 는 생략이 가능
+FROM STUDENT;
+
+SELECT AVG(STU_HEIGHT) AS "평균 키" -- 띄어쓰기가 들어가면 묶어야됨
+FROM STUDENT;
+
+SELECT SUM(STU_HEIGHT) "더한 값"
+FROM STUDENT;
